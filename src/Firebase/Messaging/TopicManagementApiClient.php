@@ -39,6 +39,15 @@ class TopicManagementApiClient
         ]);
     }
 
+    public function getTokenInfo($token, $details=false){
+
+        return $this->request('GET', '/iid/info/' . $token, [
+            'query' => [
+                'details' => $details
+            ],
+        ]);
+    }
+
     private function request($method, $endpoint, array $options = null): ResponseInterface
     {
         try {

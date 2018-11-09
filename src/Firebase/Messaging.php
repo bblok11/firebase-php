@@ -117,6 +117,19 @@ class Messaging
         return JSON::decode((string) $response->getBody(), true);
     }
 
+    /**
+     * @param string $token
+     * @param boolean $details
+     *
+     * @return array
+     */
+    public function getTokenInfo($token, $details=false)
+    {
+        $response = $this->topicManagementApi->getTokenInfo($token, $details);
+
+        return JSON::decode((string) $response->getBody(), true);
+    }
+
     private function ensureArrayOfRegistrationTokens($tokenOrTokens): array
     {
         if ($tokenOrTokens instanceof RegistrationToken) {
